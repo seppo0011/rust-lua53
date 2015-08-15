@@ -1,0 +1,12 @@
+install:
+  - ps: Start-FileDownload "https://raw.githubusercontent.com/carllerche/travis-rust-matrix/master/install.ps1"; . .\install.ps1
+
+environment:
+  matrix:
+    - RUST_VERSION: nightly
+
+build: false
+
+test_script:
+  - cargo build --verbose
+  - cargo test --verbose
